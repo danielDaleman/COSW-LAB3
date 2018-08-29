@@ -9,8 +9,10 @@ import {Login} from "./component/Login";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
+import {Todo} from './Todo';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
-class App extends Component {
+export class App extends Component {
 
     constructor(props) {
         super(props);
@@ -24,15 +26,10 @@ class App extends Component {
 
     render() {
 
+
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">TODO React App</h1>
-                </header>
 
-                <br/>
-                <br/>
                 <form onSubmit={this.handleSubmit} className="todo-form">
                     <h3>New TODO</h3>
                     <label htmlFor="text" className="right-margin">
@@ -76,7 +73,6 @@ class App extends Component {
                            Add #{this.state.items.length + 1}
                      </Button>
                 </form>
-                <Login />
                 <br/>
                 <br/>
                 <TodoList todoList={this.state.items}/>
@@ -125,4 +121,4 @@ class App extends Component {
 
 }
 
-export default App;
+
