@@ -5,6 +5,10 @@ import {TodoList} from "./TodoList";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from "moment";
+import {Login} from "./component/Login";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 
 class App extends Component {
 
@@ -35,11 +39,11 @@ class App extends Component {
                         Text:
                     </label>
 
-                    <input
+                    <TextField
                         id="text"
                         onChange={this.handleTextChange}
-                        value={this.state.text}>
-                    </input>
+                        value={this.state.text}> Text
+                    </TextField>
 
                     <br/>
                     <br/>
@@ -47,12 +51,12 @@ class App extends Component {
                         Priority:
                     </label>
 
-                    <input
+                    <TextField
                         id="priority"
                         type="number"
                         onChange={this.handlePriorityChange}
                         value={this.state.priority}>
-                    </input>
+                    </TextField>
                     <br/>
                     <br/>
 
@@ -63,10 +67,16 @@ class App extends Component {
                         onChange={this.handleDateChange}>
                     </DatePicker>
                     <br/>
-                    <button>
-                        Add #{this.state.items.length + 1}
-                    </button>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="raised"
+                        color="primary"
+                        className="submit">
+                           Add #{this.state.items.length + 1}
+                     </Button>
                 </form>
+                <Login />
                 <br/>
                 <br/>
                 <TodoList todoList={this.state.items}/>
