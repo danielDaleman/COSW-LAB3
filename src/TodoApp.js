@@ -15,11 +15,17 @@ import {App} from './App';
 export class TodoApp extends React.Component {
 
     constructor(props) {
-        super(props);
+        super(props);		
     }
 
-    render() {
+    render() {												
+		
+		//Save data
+		localStorage.setItem('user', "cosw");
+		localStorage.setItem('password', "cosw");		
 
+		var isLoggedIn = localStorage.getItem('isLoggedIn');				
+		
         const LoginView = () => (
                       <Login/>
                 );
@@ -48,11 +54,11 @@ export class TodoApp extends React.Component {
 
                                 <div>
                                     <Route exact path="/" component={LoginView}/>
-                                    <Route path="/todo" component={TodoView}/>
+									{isLoggedIn && <Route path="/todo" component={TodoView}/>}
                                 </div>
                             </div>
                         </Router>
-        );
+        )
     }
 
 }

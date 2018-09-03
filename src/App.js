@@ -24,12 +24,9 @@ export class App extends Component {
     }
 
 
-    render() {
-
-
-        return (
-            <div className="App">
-
+    render() {					
+        return (						
+			<div className="App">
                 <form onSubmit={this.handleSubmit} className="todo-form">
                     <h3>New TODO</h3>
                     <label htmlFor="text" className="right-margin">
@@ -76,9 +73,8 @@ export class App extends Component {
                 <br/>
                 <br/>
                 <TodoList todoList={this.state.items}/>
-            </div>
-        );
-    }
+            </div>						
+		);}		
 
     handleTextChange(e) {
         this.setState({

@@ -9,11 +9,25 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import './Login.css';
+import {Todo} from './../Todo';
 
 
-export class Login extends React.Component{
-
-    render(){
+export class Login extends React.Component{					
+			
+    render(){											
+		
+		function checkUser(){
+			if(document.getElementById('email').value == localStorage.getItem('user')
+				&& document.getElementById('password').value == localStorage.getItem('password')){
+					localStorage.setItem('isLoggedIn', true);
+					alert("correct user, you can enter TODO");
+			}else{
+				alert("user incorrecto");				
+			}
+			
+		}
+	
+	
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -31,7 +45,7 @@ export class Login extends React.Component{
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="password">Password</InputLabel>
                                 <Input
-                                    name="password"
+                                    name="password"									
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
@@ -42,7 +56,8 @@ export class Login extends React.Component{
                                 fullWidth
                                 variant="raised"
                                 color="primary"
-                                className="submit"
+                                className="submit"	
+								onClick = {checkUser}	
                             >
                                 Sign in
                             </Button>
@@ -51,6 +66,5 @@ export class Login extends React.Component{
                 </main>
             </React.Fragment>
         );
-    }
-
+    }		
 }
